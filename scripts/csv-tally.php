@@ -15,19 +15,18 @@ header("Location: ../results.php");
 
 function parseTitles(array $entries) {
 	$titles = [];
-	foreach($entries as $entry) {
-		$data = explode(",", $entry);
+		$data = explode(",", $entries[0]);
 		$i = 0;
 		foreach($data as $keys) {
 			$titles[$i] = $keys;
 			$i++;
 		}
-	}
 	return $titles;
 }
 
 function tally(array $entries) {
 	$tally = [];
+	unset($entries[0]);
 	foreach($entries as $entry) {
 		$data = explode(",", $entry);
 		$count = count($data);
